@@ -1,0 +1,179 @@
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="archivos/prueba.css">
+</head>
+
+<body>
+	<br />
+	<br />
+	<section class="container">
+
+		<div class="row" style="display: none" id="rowTabla" >
+			<table class="display" style="width:100%" id="mytable">
+				<thead>
+					<tr>
+					    <th>Secuencia</th>
+						<th>Nombre usuario - Clave</th>
+						<th>Respuesta - Json </th>
+					</tr>
+				</thead>
+
+			</table>
+
+		</div>
+
+
+		<div class="row" id="rowIniciarSesion">
+			<div class="col s6 m6">
+				<div class="card grey lighten-3">
+					<div class="card-content dark-text">
+						<h5 class="center-align">Iniciar sesión</h5>
+					</div>
+					<div class="card-action">
+						<form method="POST" action="iniciarsesion" id="formulario">
+							<div class="input-field">
+								<i class="material-icons prefix">perm_identity</i>
+								<label for="nombreUsuario">Nombre usuario</label>
+								<input type="text" id="nombreUsuario" name="nombreUsuario" required>
+							</div>
+
+							<div class="input-field">
+								<i class="material-icons prefix">blur_on</i>
+								<label for="clave">Clave</label>
+								<input type="password" name="clave" id="clave" required>
+							</div>
+
+
+
+							<p class="center-align">
+								<button class="waves-effect waves-light btn" type="submit" id="btnEnviar" name="btnEnviar"><i class="material-icons right">send</i>
+									<label style="color: #ffffff;" id="etiquetaBoton">
+										enviar
+									</label>
+								</button>
+							</p>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col s6 m6">
+
+
+				<div class="card" style="display: none" id="cardUsuario">
+					<div class="card-image">
+						<img src="http://www.img.lirent.net/2014/10/Android-Lollipop-wallpapers-Download.jpg" alt="" />
+					</div>
+					<div class="card-content">
+						<div class="row">
+							<div class="col s4 profile-pic">
+								<img class="circle responsive-img" src="https://lh3.googleusercontent.com/-W2XryVdi-lA/U6tSAh3SsbI/AAAAAAAAFGY/ZHJiUEcR_Zs/w480-h480/avatar%2Bmaterial%2Bdesign.png"
+								 alt="" />
+							</div>
+						</div>
+
+						<div class="input-field">
+							<i class="material-icons prefix">assignment_ind</i>
+							<label for="tipoDocumentoMs">Tipo Documento</label>
+							<input style="color:#000" type="text" value=" " id="tipoDocumentoMs" name="tipoDocumentoMs" disabled="disabled">
+						</div>
+
+						<div class="input-field">
+							<i class="material-icons prefix">casino</i>
+							<label for="numeroDocumentoMs">Numero Documento</label>
+							<input style="color:#000" type="text" value=" " id="numeroDocumentoMs" name="numeroDocumentoMs" disabled="disabled">
+						</div>
+
+						<div class="input-field">
+							<i class="material-icons prefix">perm_identity</i>
+							<label for="nombreMs">Nombres</label>
+							<input style="color:#000" type="text" value=" " id="nombreMs" name="nombreMs" disabled="disabled">
+						</div>
+
+						<div class="input-field">
+							<i class="material-icons prefix">person_pin</i>
+							<label for="apellidosMs">Apellidos</label>
+							<input style="color:#000" type="text" value=" " id="apellidosMs" name="apellidosMs" id="apellidosMs" disabled="disabled">
+						</div>
+
+						<div class="input-field">
+							<i class="material-icons prefix">email</i>
+							<label for="email">Correo electrónico</label>
+							<input style="color:#000" type="email" value=" " name="email" id="emailMs" disabled="disabled">
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="row">
+				<div class="col s12 m12">
+
+						<div class="card grey lighten-3" id="rowCardMp">
+								<div class="card-action">
+									<form method="POST" action="iniciarsesion" id="formularioRepetir">
+			
+										<p class="center-align">
+											<button class="waves-effect light-blue darken-4 btn" onclick="$('#rowCardMp').hide();$('#rowCardVolver').show();$('#cardUsuario').hide();" type="submit" id="btnEnviarRp" name="btnEnviarRp"><i class="material-icons right">arrow_forward</i>
+												<label style="color: #ffffff;">
+													Multiples peticiones
+												</label>
+											</button>
+										</p>
+			
+									</form>
+			
+			
+								</div>
+							</div>
+			
+				</div>
+
+				<div class="col s12 m12">
+
+						<div class="card grey lighten-3"  style="display: none"  id="rowCardVolver">
+								<div class="card-action">
+										
+										<p class="center-align">
+											<button class="waves-effect light-blue darken-4 btn" onclick="$('#rowCardMp').show();$('#rowCardVolver').hide();$('#rowTabla').hide();$('#rowIniciarSesion').show();" type="button" ><i class="material-icons right">arrow_back</i>
+												<label style="color: #ffffff;">
+												Volver
+												</label>
+											</button>
+										</p>
+			
+								</div>
+							</div>
+
+				</div>
+		</div>
+
+
+
+
+	</section>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+	<script src="archivos/prueba.js"></script>
+
+</body>
+
+</html>
